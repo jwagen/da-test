@@ -1,0 +1,29 @@
+[package]
+name = "da-test"
+version = "0.1.0"
+authors = ["johannes"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[dependencies.avr-device]
+path = "../avr-device" 
+features = ["avr128da48", "rt"]
+
+[dependencies]
+panic-halt = "0.2.0"
+
+# Configure the build for minimal size
+[profile.dev]
+panic = "abort"
+lto = true
+opt-level = "s"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+debug = true
+lto = true
+opt-level = 3
+

@@ -1,0 +1,6 @@
+[build]
+target = "avr-avr128da48.json"
+
+
+[unstable]
+build-std = ["core"]
